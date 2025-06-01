@@ -1,0 +1,1003 @@
+/* Base styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* --- DRY BUTTON STYLES --- */
+button, .location-btn, .open-maps-btn, .login-btn, .logout-btn, .back-btn {
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.location-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+
+.location-btn:hover {
+    background-color: #2980b9;
+}
+
+.login-btn {
+    background-color: white;
+    color: #3498db;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.login-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.logout-btn {
+    background-color: white;
+    color: #3498db;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.back-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #c0392b;
+}
+
+.update-btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+
+.update-btn:hover {
+    background-color: #27ae60;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.get-location-btn, .tracking-btn {
+    flex: 1;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.get-location-btn:hover, .tracking-btn:hover {
+    background-color: #2980b9;
+}
+
+.tracking-btn.tracking-active {
+    background-color: #e74c3c;
+}
+
+.tracking-btn.tracking-active:hover {
+    background-color: #c0392b;
+}
+
+.open-maps-btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    display: block;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 0.7em 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05em;
+    margin: 0.7em 0 0.5em 0;
+    text-align: center;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+    text-decoration: none !important;
+}
+.open-maps-btn:hover {
+    background: #217dbb;
+    text-decoration: none !important;
+    box-shadow: 0 4px 16px rgba(52,152,219,0.18);
+}
+.open-maps-btn:active {
+    background: #17609c;
+}
+
+/* --- DRY CARD STYLES --- */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.card-blue {
+    background: #fafdff;
+    border: 1.5px solid #e3eaf3;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.06);
+}
+
+/* Layout containers */
+#root,
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0; /* Remove extra space below College Bus Tracker */
+}
+
+/* Main content container */
+.content-container {
+    flex: 1;
+    padding: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    position: static;
+    width: 100%;
+    box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+  .content-container {
+    padding-bottom: 1rem;
+  }
+}
+
+/* Home page styling */
+.home-container {
+    text-align: center;
+    padding: 1rem;
+}
+
+.title {
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.bus-list-container {
+    margin-top: 2rem;
+}
+
+.bus-list-title {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.bus-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.bus-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bus-card:hover {
+    transform: translateY(-5px);
+}
+
+.bus-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.bus-name {
+    margin: 0.5rem 0;
+    color: #2c3e50;
+}
+
+.bus-name-box {
+    display: inline-block;
+    padding: 0.6em 2em;
+    background: #e3f2fd; /* light blue */
+    border: 2px solid #3498db;
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 1.15em;
+    color: #1565c0;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.08);
+    letter-spacing: 1px;
+    transition: box-shadow 0.2s, background 0.2s;
+    text-align: center;
+}
+
+.bus-name-box:hover {
+    box-shadow: 0 4px 16px rgba(52,152,219,0.18);
+    background: #bbdefb;
+}
+
+/* Bus location page styling */
+.bus-location-page {
+    padding: 1rem;
+}
+
+.route-container, .live-location-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.route-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1rem;
+    background: #fafdff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(52,152,219,0.10);
+    font-size: 1.08em;
+    letter-spacing: 0.01em;
+}
+
+.route-table th, .route-table td {
+    padding: 1.1em 1.2em;
+    text-align: left;
+    border-bottom: 1px solid #e3eaf3;
+}
+
+.route-table th {
+    background: linear-gradient(90deg, #3498db 0%, #6dd5fa 100%);
+    color: #fff;
+    font-weight: 700;
+    border-bottom: 2px solid #e3eaf3;
+    letter-spacing: 0.04em;
+}
+
+.route-table tr:last-child td {
+    border-bottom: none;
+}
+
+.route-table tr {
+    transition: background 0.18s;
+}
+
+.route-table tbody tr:hover {
+    background: #e3f2fd;
+}
+
+.map-placeholder {
+    height: 300px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    margin-top: 1rem;
+}
+
+/* Login page styling */
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    min-height: 350px;
+}
+
+.login-container h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.login-container button {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+
+.login-container button:hover {
+    background-color: #2980b9;
+}
+
+.login-container button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Center the login card on the page (desktop and mobile) */
+.login-page-center-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+@media (max-width: 700px) {
+  .login-page-center-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-container {
+    margin: 0 auto;
+    max-width: 95vw;
+    min-width: 0;
+    box-sizing: border-box;
+    display: block;
+  }
+}
+
+/* Add space below headings and paragraphs for clarity */
+h1, h2, h3, h4, h5, h6, .bus-name {
+    margin-bottom: 1.2em;
+}
+
+p, .coordinates, .update-time, .coordinate-label {
+    margin-bottom: 0.8em;
+}
+
+/* Add space above and below main cards/sections, but not header/footer */
+.live-location-container,
+.route-container,
+.dashboard-container,
+.login-container,
+.bus-card,
+.location-info-card {
+    margin-top: 2.2em;
+    margin-bottom: 2.2em;
+}
+
+/* Remove extra margin from header/footer to keep them tight */
+.header, .footer {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Page transition animation */
+.page-transition {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Driver Dashboard Styles */
+.driver-dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.dashboard-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.location-controls {
+    margin: 1.5rem 0;
+}
+
+.location-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.get-location-btn, .tracking-btn {
+    flex: 1;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.get-location-btn:hover, .tracking-btn:hover {
+    background-color: #2980b9;
+}
+
+.tracking-btn.tracking-active {
+    background-color: #e74c3c;
+}
+
+.tracking-btn.tracking-active:hover {
+    background-color: #c0392b;
+}
+
+.tracking-status {
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.last-update {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.25rem;
+}
+
+.get-location-btn:disabled, .update-btn:disabled, .delete-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.current-location {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    color: #333;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.update-btn, .delete-btn {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+
+.update-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.update-btn:hover {
+    background-color: #27ae60;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.update-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Driver login error message */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Form select styling */
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Leaflet map container */
+.live-location-map,
+.google-maps-container {
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Required to make Leaflet work properly */
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+}
+
+/* Location details and card */
+.location-details {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.basic-location-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+.location-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.coordinate-display {
+    flex: 1;
+}
+
+.coordinate-display h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.coordinates {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.coordinate-label {
+    font-weight: bold;
+    color: #7f8c8d;
+    margin-right: 0.5rem;
+}
+
+.update-time {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+
+.location-pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pin-icon {
+    font-size: 3rem;
+    color: #e74c3c;
+}
+
+.google-maps-button, .open-maps-btn {
+    width: 100%;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.google-maps-button:hover, .open-maps-btn:hover {
+    background-color: #3367D6;
+}
+
+.maps-icon {
+    font-size: 1.2rem;
+}
+
+/* No location container/message */
+.no-location-container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+}
+
+.no-location-message {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #666;
+    border: 1px dashed #ddd;
+}
+
+.location-coords-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5em;
+    width: 100%;
+}
+.location-coords-left {
+    flex: 2;
+    min-width: 0;
+}
+.location-coords-right {
+    flex: 1;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-left: 1em;
+}
+.location-coords-right .coordinates,
+.location-coords-right .update-time {
+    font-size: 1.08em;
+    color: #2c3e50;
+    margin-bottom: 0.2em;
+    text-align: right;
+}
+.accuracy-label {
+    font-weight: 500;
+}
+.open-maps-btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    display: block;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 0.7em 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05em;
+    margin: 0.7em 0 0.5em 0;
+    text-align: center;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+    text-decoration: none !important;
+}
+.open-maps-btn:hover {
+    background: #217dbb;
+    text-decoration: none !important;
+    box-shadow: 0 4px 16px rgba(52,152,219,0.18);
+}
+.open-maps-btn:active {
+    background: #17609c;
+}
+
+.location-info-card {
+    background: #fafdff; /* subtle light blue hue */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+    margin: 1.5em 0 0 0;
+    padding: 1.5em 1.5em 1.2em 1.5em;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    border: 1.5px solid #e3eaf3;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.06);
+}
+
+.recenter-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    background: #3498db;
+    color: #fff;
+    border: 2px solid #217dbb;
+    border-radius: 18px;
+    padding: 0.55em 1.4em;
+    font-size: 1.05em;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(52,152,219,0.18);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border 0.18s, transform 0.12s;
+    outline: none;
+    display: inline-block;
+    opacity: 1;
+}
+.recenter-btn:hover {
+    background: #217dbb;
+    color: #fff;
+    border: 2px solid #1565c0;
+    transform: translateY(-2px) scale(1.05);
+}
+.recenter-btn:active {
+    background: #17609c;
+    color: #fff;
+    border: 2px solid #217dbb;
+}
+@media (max-width: 700px) {
+  .bus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .bus-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .login-container {
+    margin: 0 auto;
+    max-width: 95vw;
+    min-width: 0;
+    box-sizing: border-box;
+    display: block;
+  }
+  .recenter-btn {
+    top: 8px;
+    right: 8px;
+    padding: 0.4em 1em;
+    font-size: 1em;
+  }
+  .bus-image {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    aspect-ratio: 16/9;
+    background: #fff;
+    margin-left: 0;
+  }
+  .footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+  .content-container {
+    padding-bottom: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .bus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .bus-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .login-container {
+    margin: 0 auto;
+    max-width: 95vw;
+    min-width: 0;
+    box-sizing: border-box;
+    display: block;
+  }
+  .recenter-btn {
+    top: 8px;
+    right: 8px;
+    padding: 0.4em 1em;
+    font-size: 1em;
+  }
+  .bus-image {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    aspect-ratio: 16/9;
+    background: #fff;
+    margin-left: 0;
+  }
+  .footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+  .content-container {
+    padding-bottom: 1rem;
+  }
+  .location-info-card {
+    font-size: 0.97em;
+    padding: 1.2em 1em 1em 1em;
+  }
+  .route-table th, .route-table td {
+    font-size: 0.97em;
+    padding: 0.8em 0.7em;
+  }
+  .location-info-card .coordinates,
+  .location-info-card .update-time,
+  .location-info-card .accuracy-label,
+  .location-info-card h4 {
+    font-size: 1em;
+  }
+  .location-info-card h4 {
+    margin-bottom: 0.5em;
+    text-align: left;
+    font-weight: 600;
+  }
+  .coordinates, .update-time, .accuracy-label {
+    font-size: 1em;
+    word-break: break-word;
+    text-align: left;
+  }
+  .location-info-card h4 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    text-align: left;
+  }
+}
