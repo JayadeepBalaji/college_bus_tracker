@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { db } from "../firebase";
 import { doc, setDoc, collection, getDocs, deleteDoc, query, where } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -19,6 +19,7 @@ const DriverDashboard = ({ onLogout }) => {
   const [updateMessage, setUpdateMessage] = useState("");
   const [isTracking, setIsTracking] = useState(false);
   const [watchId, setWatchId] = useState(null);
+  const watchIdRef = useRef(null); 
   const [lastUpdateTime, setLastUpdateTime] = useState(null);
 
   // Fetch assigned bus to the logged-in driver
@@ -47,14 +48,19 @@ const DriverDashboard = ({ onLogout }) => {
     // eslint-disable-next-line
   }, []);
 
+  // Update watchIdRef whenever watchId changes
+  useEffect(() => {
+    watchIdRef.current = watchId;
+  }, [watchId]);
+
   // Cleanup geolocation watch when component unmounts
   useEffect(() => {
     return () => {
-      if (watchId !== null) {
-        navigator.geolocation.clearWatch(watchId);
+      if (watchIdRef.current !== null) {
+        navigator.geolocation.clearWatch(watchIdRef.current);
       }
     };
-  }, [watchId]);
+  }, []);
 
   // Auto-start tracking when busId is selected
   useEffect(() => {
@@ -97,8 +103,8 @@ const DriverDashboard = ({ onLogout }) => {
   const toggleLocationTracking = () => {
     if (isTracking) {
       // Stop tracking
-      if (watchId !== null) {
-        navigator.geolocation.clearWatch(watchId);
+      if (watchIdRef.current !== null) {
+        navigator.geolocation.clearWatch(watchIdRef.current);
         setWatchId(null);
       }
       setIsTracking(false);
@@ -141,6 +147,7 @@ const DriverDashboard = ({ onLogout }) => {
       geoOptions
     );
     setWatchId(id);
+    watchIdRef.current = id; // <-- always update ref
   };
 
   // Update location in Firestore
@@ -205,11 +212,10 @@ const DriverDashboard = ({ onLogout }) => {
   // Delete bus location
   const deleteBusLocation = async () => {
     if (!busId) return;
-    
     // Stop tracking if active
     if (isTracking) {
-      if (watchId !== null) {
-        navigator.geolocation.clearWatch(watchId);
+      if (watchIdRef.current !== null) {
+        navigator.geolocation.clearWatch(watchIdRef.current);
         setWatchId(null);
       }
       setIsTracking(false);
